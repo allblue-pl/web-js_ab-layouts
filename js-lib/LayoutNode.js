@@ -9,7 +9,7 @@ class LayoutNode extends abNodes.Node
 
     constructor()
     { super();
-        js0.prop(this, LayoutNode.PChildren);
+        js0.prop(this, LayoutNode.PChildren, this);
 
         // this._idNodes = {};
     }
@@ -61,6 +61,11 @@ Object.defineProperties(LayoutNode, {
     class LayoutNode_PChildren extends abNodes.Node.PChildren
     {
 
+        constructor(node)
+        {
+            super(node);
+        }
+        
         __onAddChild(child_node, next_node)
         {
             if (next_node === null)
@@ -76,7 +81,7 @@ Object.defineProperties(LayoutNode, {
             if (next_node !== null)
                 return next_node;
 
-            return this.__main.nextNode;
+            return this.node.nextNode;
         }
 
     }}

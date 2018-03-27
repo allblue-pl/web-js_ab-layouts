@@ -25,7 +25,7 @@ class Parser
 
         this.__onParse();
 
-        let layout_node = new LayoutNode();
+        let layoutNode = new LayoutNode();
         let id_nodes = {};
 
         let parentsStack = [{
@@ -55,11 +55,14 @@ class Parser
                 // }
 
                 if (parent.node === null)
-                    layout_node.pChildren.add(element.topNode);
+                    layoutNode.pChildren.add(element.topNode);
                 else
                     parent.node.pChildren.add(element.topNode);
 
-                if (js0.implements(element.bottomNode, abNodes.Node.PChildren)) {
+                if (nodeInfo.type === '_content')
+                    continue;
+
+                if (js0.type(element.bottomNode, js0.Prop(abNodes.Node.PChildren))) {
                     parentsStack.push({
                         node: element.bottomNode,
                         nodeContent: nodeInfo.content,
@@ -68,14 +71,14 @@ class Parser
                 }
             }
 
-            // parent_nodes_stack.pop();
-            // parent.nodeContents_stack.pop();
+            // parentNodesStack.pop();
+            // parent.nodeContentsStack.pop();
             // return;
         }
 
-        // layout_node.setIds(id_nodes);
+        // layoutNode.setIds(id_nodes);
 
-        return layout_node;
+        return layoutNode;
     }
 
 
@@ -203,10 +206,10 @@ Object.defineProperties(Parser, {
     class
     {
 
-        constructor(top_node, bottom_node, info)
+        constructor(topNode, bottomNode, info)
         {
-            this.topNode = top_node;
-            this.bottomNode = bottom_node;
+            this.topNode = topNode;
+            this.bottomNode = bottomNode;
             this.info = info;
         }
 
