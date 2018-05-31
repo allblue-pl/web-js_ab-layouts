@@ -25,10 +25,8 @@ class LayoutNode extends abNodes.Node
     /* Node */
     __onActivate()
     {
-        for (let i = 0; i < this.pChildren.length; i++) {
-            // console.log('LayoutNode', this.pChildren.get(i));
+        for (let i = 0; i < this.pChildren.length; i++)
             this.pChildren.get(i).activate();
-        }
     }
 
     __onDeactivate()
@@ -66,18 +64,18 @@ Object.defineProperties(LayoutNode, {
             super(node);
         }
         
-        __onAddChild(child_node, next_node)
+        __onAddChild(childNode, next_node)
         {
             if (next_node === null)
-                child_node._nextNode = this._nextNode;
+                childNode._nextNode = this._nextNode;
 
-            if (this.active)
-                child_node.activate();
+            if (this.node.active)
+                childNode.activate();
         }
 
-        __getNext(child_node)
+        __getNext(childNode)
         {
-            let next_node = this.findNext(child_node);
+            let next_node = this.findNext(childNode);
             if (next_node !== null)
                 return next_node;
 

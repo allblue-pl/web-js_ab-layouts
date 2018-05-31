@@ -23,7 +23,7 @@ class Parser
     {
         js0.args(arguments, Array);
 
-        this.__onParse();
+        this.__beforeParse();
 
         let layoutNode = new LayoutNode();
         let id_nodes = {};
@@ -77,6 +77,8 @@ class Parser
         }
 
         // layoutNode.setIds(id_nodes);
+
+        this.__afterParse();
 
         return layoutNode;
     }
@@ -188,7 +190,12 @@ class Parser
     // }
 
 
-    __onParse()
+    __afterParse()
+    {
+
+    }
+
+    __beforeParse()
     {
 
     }
