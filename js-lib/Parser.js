@@ -17,6 +17,12 @@ class Parser
     constructor(layoutContent)
     {
         this._elementsStack = null;
+        this._extendFns = [];
+    }
+
+    extend(fn)
+    {
+        this._extendFns.push(fn);
     }
 
     parse(layoutContent)
@@ -84,6 +90,12 @@ class Parser
     }
 
 
+    _execExtendFns(element)
+    {
+        for (let extendFn of this._extendFns)
+            extendFn(element);
+    }
+
     _parseNodeInfo(nodeInfo)
     {
         /* Validate */
@@ -127,17 +139,25 @@ class Parser
                     nodeContent.push(nodeInfo[i]);
             }
 
-            return {
+            let element = {
                 type: nodeType,
                 attribs: nodeAttribs,
                 content: nodeContent,
             };
+
+            // this._execExtendFns(element);
+
+            return element;
         } else {
-            return {
+            let element = {
                 type: '_content',
                 attribs: {},
                 content: nodeInfo,
-            };
+            }
+
+            // this._execExtendFns(element);
+
+            return element;
         }
 
         // let nodeType = nodeInfo_keys[0];
