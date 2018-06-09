@@ -145,7 +145,7 @@ class Parser
                 content: nodeContent,
             };
 
-            // this._execExtendFns(element);
+            this._execExtendFns(element);
 
             return element;
         } else {
@@ -155,7 +155,7 @@ class Parser
                 content: nodeInfo,
             }
 
-            // this._execExtendFns(element);
+            this._execExtendFns(element);
 
             return element;
         }
