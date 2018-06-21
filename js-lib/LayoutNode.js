@@ -23,14 +23,21 @@ class LayoutNode extends abNodes.Node
 
 
     /* Node */
+    __isDisplayed()
+    {
+        return this.parentNode.displayed && this.active;
+    }
+
     __onActivate()
     {
+        this.refreshDisplayed();
         for (let i = 0; i < this.pChildren.length; i++)
             this.pChildren.get(i).activate();
     }
 
     __onDeactivate()
     {
+        this.refreshDisplayed();
         for (let i = this.pChildren.length - 1; i >= 0; i--)
             this.pChildren.get(i).deactivate();
     }
