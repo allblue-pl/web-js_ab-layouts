@@ -30,14 +30,14 @@ class LayoutNode extends abNodes.Node
 
     __onActivate()
     {
-        this.refreshDisplayed();
         for (let i = 0; i < this.pChildren.length; i++)
             this.pChildren.get(i).activate();
+        this.refreshDisplayed(true);
     }
 
     __onDeactivate()
     {
-        this.refreshDisplayed();
+        this.refreshDisplayed(true);
         for (let i = this.pChildren.length - 1; i >= 0; i--)
             this.pChildren.get(i).deactivate();
     }
