@@ -32,7 +32,6 @@ class Parser
         this.__beforeParse();
 
         let layoutNode = new LayoutNode();
-        let id_nodes = {};
 
         let parentsStack = [{
             node: null,
@@ -117,10 +116,10 @@ class Parser
                 /* Parse Args */
                 if (js0.type(nodeInfo[i], js0.RawObject)) {
                     for (let attribName in nodeInfo[i]) {
-                        let attrib_value = nodeInfo[i][attribName];
+                        let attribValue = nodeInfo[i][attribName];
 
-                        if (!js0.type(attrib_value, [ 'string', Array ]) ||
-                                attrib_value === null) {
+                        if (!js0.type(attribValue, [ 'string', Array ]) ||
+                                attribValue === null) {
                             console.error('Error info: ', nodeInfo[i]);
                             throw new Error(`Node attrib must be \`string\` or \`Array\`.`);
                         }
@@ -128,11 +127,11 @@ class Parser
                         if (!(attribName in nodeAttribs))
                             nodeAttribs[attribName] = [];
 
-                        if (js0.type(attrib_value, 'string'))
-                            nodeAttribs[attribName].push(attrib_value);
+                        if (js0.type(attribValue, 'string'))
+                            nodeAttribs[attribName].push(attribValue);
                         else
                             nodeAttribs[attribName] = nodeAttribs[attribName]
-                                    .concat(attrib_value);
+                                    .concat(attribValue);
                     }
                 /* Parse Node */
                 } else

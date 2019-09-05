@@ -89,6 +89,14 @@ Object.defineProperties(LayoutNode, {
             return this.node.nextNode;
         }
 
+        __getNextHtmlElement()
+        {
+            if (this.node.hasParent)
+                return this.node.parentNode.nextHtmlElement;
+
+            return null;
+        }
+
     }}
 
 });
