@@ -91,10 +91,7 @@ Object.defineProperties(LayoutNode, {
 
         __getNextHtmlElement()
         {
-            if (this.node.hasParent)
-                return this.node.parentNode.nextHtmlElement;
-
-            return null;
+            return this.node.nextHtmlElement;
         }
 
     }}
