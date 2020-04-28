@@ -10,6 +10,7 @@ class LayoutNode extends abNodes.Node
     constructor()
     { super();
         js0.prop(this, LayoutNode.PChildren, this);
+        js0.prop(this, LayoutNode.PCopyable, this, arguments);
 
         // this._idNodes = {};
     }
@@ -94,6 +95,21 @@ Object.defineProperties(LayoutNode, {
             return this.node.nextHtmlElement;
         }
 
-    }}
+    }},
 
+    PCopyable: { value:
+    class LayoutNode_PCopyable extends abNodes.Node.PCopyable
+    {
+
+        constructor(node, args)
+        {
+            super(node, args);
+        }
+
+        __createCopy(deepCopy, nodeInstances)
+        {
+            return new LayoutNode(this.__args[0]);
+        }
+
+    }},
 });
