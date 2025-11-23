@@ -100,7 +100,6 @@ Object.defineProperties(LayoutNode, {
     PCopyable: { value:
     class LayoutNode_PCopyable extends abNodes.Node.PCopyable
     {
-
         constructor(node, args)
         {
             super(node, args);
@@ -111,5 +110,8 @@ Object.defineProperties(LayoutNode, {
             return new LayoutNode(this.__args[0]);
         }
 
+        __deleteCopy(instanceKeys) {
+            
+        }
     }},
 });
