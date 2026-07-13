@@ -1,12 +1,7 @@
-'use strict';
+import abNodes from "ab-nodes";
+import js0 from "js0";
 
-const abNodes = require('ab-nodes');
-const js0 = require('js0');
-
-
-class LayoutNode extends abNodes.Node
-{
-
+export default class LayoutNode extends abNodes.Node {
     constructor()
     { super();
         js0.prop(this, LayoutNode.PChildren, this);
@@ -58,11 +53,9 @@ class LayoutNode extends abNodes.Node
     /* / Node */
 
 }
-module.exports = LayoutNode;
 
 
 Object.defineProperties(LayoutNode, {
-
     PChildren: { value:
     class LayoutNode_PChildren extends abNodes.Node.PChildren
     {

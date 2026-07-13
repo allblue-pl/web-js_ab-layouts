@@ -1,14 +1,8 @@
-'use strict';
+import abNodes from "ab-nodes";
+import js0 from "js0";
+import LayoutNode from "./LayoutNode";
 
-const abNodes = require('ab-nodes');
-const js0 = require('js0');
-
-const LayoutNode = require('./LayoutNode');
-
-
-class Parser
-{
-
+export default class Parser {
     get __elementsStack() {
         return this._elementsStack;
     }
@@ -223,11 +217,9 @@ class Parser
     __createElement(nodeInfo) { js0.virtual(this); }
 
 }
-module.exports = Parser;
 
 
 Object.defineProperties(Parser, {
-
     Element: { value:
     class
     {
@@ -240,5 +232,4 @@ Object.defineProperties(Parser, {
         }
 
     }},
-
 });

@@ -2,6 +2,5 @@
   "name": "ab-layouts",
   "version": "0.0.1",
   "dependencies": {
-    "ab-log": "1.0.*"
   }
 }

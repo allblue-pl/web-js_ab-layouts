@@ -1,18 +1,14 @@
-'use strict';
+import LayoutNode from "./LayoutNode";
+import Parser from "./Parser";
 
-const LayoutNode = require('./LayoutNode');
-
-
-class abLayouts_Class
-{
-
+export class abLayouts_Class {
     get LayoutNode() {
         return LayoutNode;
     }
 
     get Parser() {
-        return require('./Parser');
+        return Parser;
     }
-
 }
-module.exports = new abLayouts_Class();
+const abLayouts = new abLayouts_Class();
+export default abLayouts;
