@@ -8,19 +8,16 @@ export default class Parser {
     }
 
 
-    constructor(layoutContent)
-    {
+    constructor(layoutContent) {
         this._elementsStack = null;
         this._extendFns = [];
     }
 
-    extend(fn)
-    {
+    extend(fn) {
         this._extendFns.push(fn);
     }
 
-    parse(layoutContent)
-    {
+    parse(layoutContent) {
         js0.args(arguments, Array);
 
         this.__beforeParse();
@@ -83,14 +80,12 @@ export default class Parser {
     }
 
 
-    _execExtendFns(element)
-    {
+    _execExtendFns(element) {
         for (let extendFn of this._extendFns)
             extendFn(element);
     }
 
-    _parseNodeInfo(nodeInfo)
-    {
+    _parseNodeInfo(nodeInfo) {
         /* Validate */
         if (!js0.argsC(arguments, [ Array, 'string' ]) || nodeInfo === null) {
             console.error('Error info:', nodeInfo)
@@ -163,8 +158,7 @@ export default class Parser {
         //
     }
 
-    _parseNodeAttrs(nodeType, nodeContent)
-    {
+    _parseNodeAttrs(nodeType, nodeContent) {
         if (nodeContent === null)
             return null;
         if (nodeContent.length === 0)
@@ -203,19 +197,16 @@ export default class Parser {
     // }
 
 
-    __afterParse()
-    {
+    __afterParse() {
 
     }
 
-    __beforeParse()
-    {
+    __beforeParse() {
 
     }
 
 
     __createElement(nodeInfo) { js0.virtual(this); }
-
 }
 
 
